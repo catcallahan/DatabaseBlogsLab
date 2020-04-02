@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom'
 import HomePage from '../client/components/homepage'
 import EditBlog from './components/editblog';
 import Singleblog from './components/singleblog';
+import CreateBlog from './components/createBlog';
 
 class App extends React.Component<IAppProps, IAppState> {
 	constructor(props: IAppProps) {
@@ -16,22 +17,16 @@ class App extends React.Component<IAppProps, IAppState> {
 
 	render() {
 		return (
-			// <main className="container my-5">
-			// 	<h1 className="text-primary text-center">My Blog!</h1>
-			// 	<ul className="list-group">
-			// 		{this.state.blogs.map(blog => {
-			// 			return <li className ='list-group-item'>{blog.title}</li>
-			// 		})}
-			// 	</ul>
-			// </main>
 
 			<Router>
 				<React.Fragment>
-				<Link className ='btn text-light mt-2' to="/">Go Home</Link>
+				<Link className ='btn mt-2' to="/">Go Home</Link>
 				<Switch>
 					<Route exact path = "/" component = {HomePage} />
+					<Route exact path = "/admin" component = {CreateBlog} />
 					<Route exact path = "/:id?" component = {Singleblog} />
 					<Route exact path = "/:id?/edit" component = {EditBlog} />
+
 				</Switch>
 				</React.Fragment>
 			</Router>
