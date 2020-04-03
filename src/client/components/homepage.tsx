@@ -28,7 +28,6 @@ const history = useHistory();
                    <div className="card-body">
                <h5 className="card-title">{blog.title}</h5>
                      <a href="#" className="btn btn-primary" onClick = {() => history.push(`/${blog.id}`)}>Details</a>
-                     <a href="#" className="btn btn-primary ml-2">Delete</a>
                    </div>
                  </div>
                ))}

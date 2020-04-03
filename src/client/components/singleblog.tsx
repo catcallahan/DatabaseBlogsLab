@@ -21,6 +21,14 @@ const Singleblog: React.FC<ISingleblogProps> = props => {
         })() 
     }, []);
 
+    const handleDelete = (e: React.MouseEvent) => {
+        fetch(`/api/blogs/${id}`, {
+            method : 'DELETE'
+        })
+        .then((res) => console.log(res))
+        .then(() => history.push('/'));
+    }
+
     return (
         <main className="container">
             <section className="row my-2 justify-content-center">
@@ -32,7 +40,7 @@ const Singleblog: React.FC<ISingleblogProps> = props => {
                             <h5 className="card-title">{b.title}</h5>
                             <p className="card-text">{b.content}</p>
                             <a href="#" className="btn btn-primary" onClick = {() => history.push(`/${b.id}/edit`)}>Edit</a>
-                            <a href="#" className="btn btn-primary ml-1">Delete</a>
+                            <a href="#" className="btn btn-primary ml-1"onClick = {handleDelete}>Delete</a>
                         </div>
                     </div>
                   )  
